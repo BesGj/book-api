@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Search from './search';
+import Pagination from './pagination';
 import BookList from './bookList';
 
 class Books extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      books: []
+      books: [],
+      currentPage: 1,
+      booksPerPage: 10
 
     };
 
@@ -27,13 +30,17 @@ class Books extends Component {
   }
 
 
+  const indexOfLastPost = currentPage * booksPerPage;
+  const indexOfFirstPost = indexOfLastPost - booksPerPage;
+  const currentBooks = this.state.books.slice(indexOfFirstPost, indexOfLastPost);
 
   render() {
 
      return (
       <div>
         <Search searchFunction={this.search}/>
-        <BookList books={this.state.books} />
+        <BookList books={currentBooks} />
+        <Pagination booksPerPage={booksPerPage} totalBooks={this.state.books.length} />
       </div>
      );
   }
