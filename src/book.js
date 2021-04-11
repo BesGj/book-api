@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 
 const Book = (props) => {
+  //console.log(props.match.params.id)
   return(
+    <Link to={`/${props.id}`} >
     <div className="container-card">
       <div className="card">
         <img src={props.img} alt="" style={{width: '100%'}}/>
@@ -10,6 +13,7 @@ const Book = (props) => {
         </div>
       </div>
     </div>
+    </Link>
   )
 
 }

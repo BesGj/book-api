@@ -7,40 +7,55 @@ class Books extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      books: [],
-      currentPage: 1,
-      booksPerPage: 10
+      books: []
+      // queryString: ''
+
 
     };
-
   }
 
 
 
   search = (query) => {
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&limit=10`
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`
     fetch(url).then(response => response.json()).then((data) => {
        const books = data.items
        this.setState({
          books: books
-
         });
 
     })
   }
 
+  // handleQuery = (e) => {
+  //   this.setState({
+  //     queryString: e
+  //   })
+  // }
 
-  const indexOfLastPost = currentPage * booksPerPage;
-  const indexOfFirstPost = indexOfLastPost - booksPerPage;
-  const currentBooks = this.state.books.slice(indexOfFirstPost, indexOfLastPost);
+
 
   render() {
+  // const iOfLastPost = this.state.currentPage * this.state.booksPerPage;
+  // const iOfFirstPost = iOfLastPost - this.state.booksPerPage;
+  // const currentBooks = !this.state.books ? [] : this.state.books.slice(iOfFirstPost, iOfLastPost);
 
+  // const paginate = (pageNumber) => {
+  //   this.setState({
+  //     currentPage: pageNumber
+  //   })
+  // }
+
+  // console.log(this.state.books.length)
      return (
       <div>
-        <Search searchFunction={this.search}/>
-        <BookList books={currentBooks} />
-        <Pagination booksPerPage={booksPerPage} totalBooks={this.state.books.length} />
+        <Search searchFunction={this.search} />
+        <BookList books={this.state.books} />
+        // <Pagination
+        // booksPerPage={this.state.booksPerPage}
+        // totalBooks={this.state.books.length}
+        // paginate={paginate}
+        />
       </div>
      );
   }
