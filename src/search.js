@@ -13,7 +13,7 @@ class Search extends Component {
       <div>
        <div className="input-group">
          <div className="form-outline">
-            <input type="search" id="form1" className="form-control" onChange={this.handleUpdate} placeholder="Enter" />
+            <input type="search" id="form1" className="form-control" onChange={this.handleUpdate} placeholder="   Search for a book" />
           </div>
         </div>
       </div>

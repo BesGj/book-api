@@ -1,32 +1,69 @@
 .App {
   text-align: center;
+
 }
 
 
 
 .card {
+  width: 250px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 13%;
   border-radius: 5px;
+  margin: 1rem;
 }
+
+.card img {
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  object-fit: contain;
+}
+
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-img {
-  border-radius: 5px 5px 0 0;
+
+
+.list {
+
+  display: flex;
+  flex-wrap: wrap;
+
+
 }
 
 .container {
-  padding: 2px 16px;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
-.card {
- display: grid;
-  height: 100px;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 100px;
+.container h6 {
+  color: #696969;
+}
+
+.form-outline {
+  margin-bottom: 20px;
 
 }
+
+#form1 {
+  width: 200px;
+  border-radius: 18px;
+  height: 39px;
+  border: solid 1px mediumvioletred;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  outline: none !important;
+}
+
+
+
+
+
+
+
+
+
+

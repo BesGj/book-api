@@ -16,7 +16,7 @@ const BookList = (props) => {
                  />
           );
         })
-        : "Search..."
+        : ""
       }
     </div>
   )
