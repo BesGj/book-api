@@ -6,7 +6,7 @@
 
 
 .card {
-  width: 250px;
+  width: 200px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
@@ -15,9 +15,7 @@
 
 .card img {
   max-width: 100%;
-  background-size: cover;
-  background-position: center;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 
@@ -28,11 +26,8 @@
 
 
 .list {
-
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
-
-
 }
 
 .container {
@@ -42,7 +37,21 @@
 
 .container h6 {
   color: #696969;
+
 }
+
+.container h5 {
+  overflow:hidden;
+  line-height: 1.5rem;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+
 
 .form-outline {
   margin-bottom: 20px;
@@ -56,10 +65,24 @@
   border: solid 1px mediumvioletred;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   outline: none !important;
+  padding-left: 5px;
 }
 
 
+.big-card {
+  display: flex;
+}
 
+.photo-card {
+  width: 317px;
+}
+
+#page-select {
+  margin-left: 5px;
+  border-radius: 5px;
+  width: 40px;
+
+}
 
 
 

@@ -12,7 +12,7 @@ const BookList = (props) => {
                  ? ""
                  : `${book.volumeInfo.imageLinks.thumbnail}`}
                  title={book.volumeInfo.title}
-                 author={book.volumeInfo.authors}
+                 author={typeof(book.volumeInfo.authors) !== "undefined" ? book.volumeInfo.authors.join(', ') : book.volumeInfo.authors }
                  id={book.id}
                  />
           );
