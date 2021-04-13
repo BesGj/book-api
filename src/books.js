@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Search from './search';
-import Pagination from './pagination';
 import BookList from './bookList';
 import SelectInput from './selectInput';
 
@@ -10,87 +9,73 @@ class Books extends Component {
     this.state = {
       books: [],
       pageIndex: 0,
-      booksPerPage: 5
+      booksPerPage: 5,
+      totalItems: 0,
+      query: ''
+
     };
   }
 
 
 
-  search = (query) => {
+  search = async (query) => {
+    this.setState({
+      query: query
+    })
     if (query.length > 0) {
       const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&startIndex=${this.state.pageIndex}&maxResults=${this.state.booksPerPage}`
-      fetch(url).then(response => response.json()).then((data) => {
-        const books = data.items
+      await fetch(url).then(response => response.json()).then((data) => {
+
         this.setState({
-          books: books
+          books: data.items,
+          totalItems: data.totalItems
         });
       })
     } else {
       query = ''
     }
+
   }
+
+
 
   pageBook = (e) => {
     this.setState({
-      booksPerPage: e
-    })
+      booksPerPage: e,
+      pageIndex: 0
+    },() => this.search(this.state.query))
   }
 
-  handlePage = (event) => {
+
+
+  handlePage = (index) => {
+
     this.setState({
-      pageIndex: Number(event.target.id)
-    });
+      pageIndex: index
+    },() => this.search(this.state.query))
+
   }
 
 
   render() {
-    const { books, pageIndex, booksPerPage } = this.state;
 
-       // Logic for displaying todos
-    const indexOfLastBook = pageIndex * booksPerPage;
-    const indexOfFirstBook = indexOfLastBook - booksPerPage;
-    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
-
-     const renderBooks = currentBooks.map((book, index) => {
-      return <li key={index}>{book}</li>;
-    });
-
-
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(books.length / booksPerPage); i++) {
-      pageNumbers.push(i);
-    }
-
-    const renderPageNumbers = pageNumbers.map(number => {
-      return (
-        <li
-          key={number}
-          id={number}
-          onClick={this.handlePage}
-        >
-          {number}
-        </li>
-      );
-    });
-
-
-
-     return (
+    return (
       <div>
         <Search searchFunction={this.search} />
         <SelectInput  pageBook={this.pageBook} value={this.state.booksPerPage}  />
         <BookList books={this.state.books} />
-        <div>
-        <ul>
-          {renderBooks}
-        </ul>
-        <ul id="page-numbers">
-          {renderPageNumbers}
-        </ul>
-      </div>
+        <div className="boss">
+          <div className="page-numbers">
+            { this.state.pageIndex > 0 &&
+            <button id="previous"  onClick={() => this.handlePage(this.state.pageIndex - 1)}>Previous</button> }
+           <p className="number">{this.state.pageIndex + 1}</p>
+          { (this.state.pageIndex+1)* this.state.booksPerPage < this.state.totalItems &&
+           <button id="next"  onClick={() => this.handlePage(this.state.pageIndex+1)}>Next</button> }
+          </div>
 
+        </div>
       </div>
-     );
+    );
   }
 };
 

@@ -10,7 +10,7 @@ class SelectInput extends Component {
   render() {
     return (
       <div>
-        <label for="page-select">Choose number of books:</label>
+        <label htmlFor="page-select">Choose number of books:</label>
           <select id="page-select" onChange={this.handleInput} value={this.props.value} >
               <option value="5">5</option>
               <option value="10">10</option>

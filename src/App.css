@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 
@@ -19,8 +18,12 @@
 }
 
 
+
+
+
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
 }
 
 
@@ -33,6 +36,8 @@
 .container {
   text-align: center;
   padding-bottom: 10px;
+
+
 }
 
 .container h6 {
@@ -52,11 +57,18 @@
   -webkit-line-clamp: 2;
 }
 
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .form-outline {
   margin-bottom: 20px;
-
+  padding-top: 10px;
 }
+
+
 
 #form1 {
   width: 200px;
@@ -70,19 +82,169 @@
 
 
 .big-card {
-  display: flex;
+   margin: 50px 0px 50px 0px;
 }
 
 .photo-card {
-  width: 317px;
+ display: flex;
+ justify-content: space-around;
+ margin: 50px 0px 50px 0px;
 }
+
+.photo img {
+  width: 350px;
+  margin-right: 10px;
+  padding: 0;
+}
+
+.content {
+  width: 500px;
+}
+
+.title {
+  display: flex;
+  margin-top: 0;
+  align-items: center;
+}
+
+.title h4 {
+  margin-right: 30px;
+  color: #4fbac8;
+}
+
+.title p {
+  text-align: justify;
+   overflow:hidden;
+  line-height: 1.5rem;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  margin-bottom: 0;
+}
+
+#author {
+  margin-left: 38px;
+}
+
+#title {
+  margin-left: 76px;
+}
+
+#date {
+  margin-left: 20px;
+}
+
+#publisher {
+  margin-left: 21px;
+}
+
+#language {
+  margin-left: 16px;
+}
+
+
+.header {
+  background-color: powderblue;
+  padding-top: 3px;
+  padding-bottom: 0.5px;
+}
+
+.buttone {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #89d1da;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.buttone:hover {
+  background: #4fbac8;
+  color: white;
+  text-decoration: none;
+}
+
+.sale {
+  color: red;
+  margin-bottom: 0;
+  font-size: 21px;
+}
+
+.buy-link {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
 
 #page-select {
   margin-left: 5px;
   border-radius: 5px;
   width: 40px;
-
 }
+
+.boss{
+  display: flex;
+  justify-content: center;
+}
+
+.page-numbers {
+  display: flex;
+  align-items: space-around;
+}
+
+.number {
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#next {
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #89d1da;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  width: 108px;
+}
+
+#next:hover {
+  background: #4fbac8;
+  color: white;
+  border: none;
+}
+
+#previous {
+  border: none;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #89d1da;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+#previous {
+  background: #4fbac8;
+  color: white;
+  border: none;
+}
+
+
+
+
+
+
+
+
 
 
 

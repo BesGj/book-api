@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Book = (props) => {
   //console.log(props.match.params.id)
   return(
-    <Link to={`/${props.id}`} >
+    <Link to={`/${props.id}`} className="link-card" >
     <div className="container-card">
       <div className="card">
         <img src={props.img} alt="" style={{width: '100%'}}/>

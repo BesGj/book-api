@@ -3,7 +3,6 @@ import Books from './books';
 import SingleBook from './sBook';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
 } from "react-router-dom";
 
@@ -13,7 +12,7 @@ function App() {
   return (
     <div className="App">
     <Router>
-    <Route path="/" exact component={Header} />
+    <Route path="/"  component={Header} />
     <Route path="/" exact component={Books} />
     <Route path="/:id" exact component={SingleBook} />
     </Router>
